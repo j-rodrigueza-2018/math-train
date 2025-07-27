@@ -1,0 +1,16 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="text-center">
+        <h1 class="mb-4">Bienvenido a <strong>{{ title }}</strong></h1>
+        <p class="lead">¡Practica tus habilidades matemáticas!</p>
+
+        <h3 class="mt-5">¿Qué quieres practicar hoy?</h3>
+        <div class="d-grid gap-3 col-6 mx-auto mt-4">
+            <a href="/play/sum" class="btn btn-primary btn-lg">➕ Sumas</a>
+            <a href="/play/subtract" class="btn btn-secondary btn-lg">➖ Restas</a>
+            <a href="/play/multiply" class="btn btn-success btn-lg">✖️ Multiplicaciones</a>
+            <a href="/play/divide" class="btn btn-danger btn-lg">➗ Divisiones</a>
+        </div>
+    </div>
+{% endblock %}
