@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Configura {{ label }}{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-4">{{ label }}</h1>
+    <p class="text-center lead">¿Con cuántos dígitos quieres practicar?</p>
+
+    <div class="d-grid gap-3 col-6 mx-auto mt-4">
+        {% for digit in [1, 2, 3] %}
+            <a href="/games/{{ operation }}/play/{{ digit }}" class="btn btn-outline-primary btn-lg">
+                {{ digit }} dígito{{ digit > 1 ? 's' : '' }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
