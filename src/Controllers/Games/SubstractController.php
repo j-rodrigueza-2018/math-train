@@ -11,6 +11,11 @@ class SubstractController extends AbstractGameController
         return 'substract';
     }
 
+    protected function getOperationSymbol(): string
+    {
+        return '-';
+    }
+
     protected function getLabel(): string
     {
         return 'Restas';

@@ -25,15 +25,19 @@ $app->get('/', [\App\Controllers\HomeController::class, 'index']);
 $app->group('/games', function (\Slim\Routing\RouteCollectorProxy $group) {
     // Sumas
     $group->get('/sum', [\App\Controllers\Games\SumController::class, 'configure']);
+    $group->get('/sum/play', [\App\Controllers\Games\SumController::class, 'play']);
 
     // Restas
     $group->get('/substract', [\App\Controllers\Games\SubstractController::class, 'configure']);
+    $group->get('/substract/play', [\App\Controllers\Games\SubstractController::class, 'play']);
 
     // Multiplicaciones
     $group->get('/multiply', [\App\Controllers\Games\MultiplyController::class, 'configure']);
+    $group->get('/multiply/play', [\App\Controllers\Games\MultiplyController::class, 'play']);
 
     // Divisiones
     $group->get('/divide', [\App\Controllers\Games\DivideController::class, 'configure']);
+    $group->get('/divide/play', [\App\Controllers\Games\DivideController::class, 'play']);
 });
 
 $app->run();

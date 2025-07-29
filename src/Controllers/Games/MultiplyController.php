@@ -11,6 +11,11 @@ class MultiplyController extends AbstractGameController
         return 'multiply';
     }
 
+    protected function getOperationSymbol(): string
+    {
+        return '·';
+    }
+
     protected function getLabel(): string
     {
         return 'Multiplicaciones';

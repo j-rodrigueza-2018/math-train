@@ -11,6 +11,11 @@ class DivideController extends AbstractGameController
         return 'divide';
     }
 
+    protected function getOperationSymbol(): string
+    {
+        return '/';
+    }
+
     protected function getLabel(): string
     {
         return 'Divisiones';

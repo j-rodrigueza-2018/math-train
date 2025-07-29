@@ -4,13 +4,26 @@
 
 {% block content %}
     <h1 class="text-center mb-4">{{ label }}</h1>
-    <p class="text-center lead">¿Con cuántos dígitos quieres practicar?</p>
+    <p class="text-center lead">Configura tu partida eligiendo los dígitos de cada número</p>
 
-    <div class="d-grid gap-3 col-6 mx-auto mt-4">
-        {% for digit in [1, 2, 3] %}
-            <a href="/games/{{ operation }}/play/{{ digit }}" class="btn btn-outline-primary btn-lg">
-                {{ digit }} dígito{{ digit > 1 ? 's' : '' }}
-            </a>
-        {% endfor %}
-    </div>
+    <form method="get" action="/games/{{ operation }}/play" class="col-md-6 mx-auto mt-4">
+        <div class="mb-3">
+            <label for="digits_operand1" class="form-label">Dígitos del primer número ✍️</label>
+            <input type="number" class="form-control" id="digits_operand1" name="digit_1" min="1" max="5" value="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="digits_operand2" class="form-label">Dígitos del segundo número ✍️</label>
+            <input type="number" class="form-control" id="digits_operand2" name="digit_2" min="1" max="5" value="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="count" class="form-label">Número de operaciones: </label>
+            <input type="number" class="form-control" id="count" name="count" min="1" max="20" value="1" required>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-outline-primary btn-lg">¡Empezar partida!</button>
+        </div>
+    </form>
 {% endblock %}
