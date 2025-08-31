@@ -6,7 +6,7 @@
     <h1 class="text-center mb-4">{{ label }}</h1>
     <p class="text-center lead">Configura tu partida eligiendo los dígitos de cada número</p>
 
-    <form method="get" action="/games/{{ operation }}/play" class="col-md-6 mx-auto mt-4">
+    <form method="get" action="/games/{{ operation }}/play/1" class="col-md-6 mx-auto mt-4">
         <div class="mb-3">
             <label for="digits_operand1" class="form-label">Dígitos del primer número ✍️</label>
             <input type="number" class="form-control" id="digits_operand1" name="digit_1" min="1" max="5" value="1" required>
@@ -22,8 +22,9 @@
             <input type="number" class="form-control" id="count" name="count" min="1" max="20" value="1" required>
         </div>
 
-        <div class="d-grid">
-            <button type="submit" class="btn btn-outline-primary btn-lg">¡Empezar partida!</button>
+        <div class="d-flex justify-content-between mt-4">
+            <a href="/" class="btn btn-outline-secondary">← Volver</a>
+            <button type="submit" class="btn btn-outline-primary">¡Empezar partida!</button>
         </div>
     </form>
 {% endblock %}

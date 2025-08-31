@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Resultados - {{ label }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Resultados de {{ label }}</h1>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8">
+                <div class="alert alert-info text-center fs-5">
+                    <strong>Respuestas Correctas:</strong> {{ correct_answers }} <br>
+                    <strong>Respuestas Incorrectas:</strong> {{ wrong_answers }} <br>
+                    <strong>Preguntas Sin responder:</strong> {{ unanswered_questions }} <br>
+                    <strong>Total:</strong> {{ total_count }} <br>
+                    <strong>Porcentaje de aciertos:</strong>
+                    {{ (correct_answers / total_count * 100)|number_format(1, '.', ',') }}%
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Operación</th>
+                        <th>Tu respuesta</th>
+                        <th>Respuesta Correcta</th>
+                        <th>Resultado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for result in results %}
+                        <tr class="{% if result.is_correct_answer %}table-success{% elseif result.given is not null %}table-danger{% else %}table-warning{% endif %}">
+                            <td>{{ loop.index }}</td>
+                            <td class="fs-5">{{ result.first_operand }} {{ operation_symbol|default('?') }} {{ result.second_operand }}</td>
+                            <td>{{ result.given_value is not null ? result.given_value : '—' }}</td>
+                            <td>{{ result.expected_value }}</td>
+                            <td>
+                                {% if result.given_value is null %}
+                                    <span class="badge bg-secondary">Sin responder</span>
+                                {% elseif result.is_correct_answer %}
+                                    <span class="badge bg-success">Correcto</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Incorrecto</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/" class="btn btn-outline-secondary btn-lg">🏠 Inicio</a>
+                <a href="/games/{{ operation }}" class="btn btn-outline-primary btn-lg">🔄 Jugar de nuevo</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

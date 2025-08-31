@@ -11,13 +11,18 @@ class SumController extends AbstractGameController
         return 'sum';
     }
 
-    protected function getOperationSymbol(): string
+    public function getOperationSymbol(): string
     {
         return '+';
     }
 
-    protected function getLabel(): string
+    public function getLabel(): string
     {
         return 'Sumas';
+    }
+
+    protected function calculate(int $first_operand, int $second_operand): int
+    {
+        return $first_operand + $second_operand;
     }
 }

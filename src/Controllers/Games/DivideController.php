@@ -20,4 +20,9 @@ class DivideController extends AbstractGameController
     {
         return 'Divisiones';
     }
+
+    protected function calculate(int $first_operand, int $second_operand): int
+    {
+        return intdiv($first_operand, $second_operand);
+    }
 }

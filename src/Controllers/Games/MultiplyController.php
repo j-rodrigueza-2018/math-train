@@ -20,4 +20,9 @@ class MultiplyController extends AbstractGameController
     {
         return 'Multiplicaciones';
     }
+
+    protected function calculate(int $first_operand, int $second_operand): int
+    {
+        return $first_operand * $second_operand;
+    }
 }
